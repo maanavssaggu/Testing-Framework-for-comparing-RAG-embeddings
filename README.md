@@ -1,36 +1,39 @@
+# Testing Framework for Comparing RAG Embeddings
 
-# Testing Framework for comparing RAG embeddings
+This project provides a testing framework to evaluate and compare the performance of different embedding models. The models currently supported for evaluation are:
 
-This project allows you to compare the following embedding model using a self-made testing framework: 
-1. COHERE = embed-english-v3.0
-2. OPENAI_SMALL = text-embedding-3-small
-3. OPENAI_LARGE = text-embedding-3-large. 
+1. **Cohere**: `embed-english-v3.0`
+2. **OpenAI Small**: `text-embedding-3-small`
+3. **OpenAI Large**: `text-embedding-3-large`
 
-The framework works by seeing whether or not the pipeline can retireve the specific requried document for a question contrieved by the testing framework. The framework creates these questions by picking a random document from the knowledge store to then ask gpt-4o to generate True or False question about it. 
+The framework works by determining whether a selected embedding model can accurately retrieve a specific document in response to a question generated about it. The process involves the following steps:
 
-Then the embedding model you choose to asses will be used in the generative pipeline and will retrieve 5 documents (k=5) and if the particular document is among the 5 it will then pass.   
+1. **Document Selection**: A random document is selected from the knowledge store.
 
-This test can be run n times, and the final accuracy is printed at the bottom. 
+2. **Test Case Generation**:
+   - The framework checks if a test case already exists for the selected document.
+   - If no test case exists, GPT-4o generates a True/False question about the document.
 
-Figures below describe how the model works: 
+3. **Document Retrieval**:
+   - The embedding model under evaluation is integrated into a generative pipeline.
+   - The pipeline retrieves the top 5 (`k=5`) documents that are most relevant to the generated question.
+
+4. **Evaluation**:
+   - If the originally selected document is among the 5 retrieved documents, the test is considered passed.
+   - The accuracy of the embedding model is assessed based on the number of successful retrievals out of `n` test cases.
+
+This test can be run `n` times, and the final accuracy is printed at the bottom.
+
+### Figures below describe how the model works:
 
 ![image](https://github.com/user-attachments/assets/04850804-c992-42e3-ac70-2b42e4f32198)
 
-
 ![image](https://github.com/user-attachments/assets/8abf04ea-d729-4219-b688-0ab48088b16a)
-
-# Testing Framework for comparing RAG embeddings
-
-This project allows you to compare any embedding model (provided it is supported by langchain) by testing the accuracy of its top 5 pulled documents. 
-
-
-
 
 ## Features
 
-- persistent storage of generated questions
+- Persistent storage of generated questions
 - CLI interface using inquirer
-
 
 ## Usage/Examples
 
@@ -60,11 +63,3 @@ Test Results Summary
 +----------------------------+----------+
 | Average Iteration Time (s) |   4.203  |
 +----------------------------+----------+
-
-```
-
-## Terminal output of running the framework
-<img width="674" alt="image" src="https://github.com/user-attachments/assets/813f5992-7c5f-4297-a61a-6152a8a752cb">
-
-
-
