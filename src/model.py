@@ -5,6 +5,7 @@ from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from pydantic import BaseModel, Field
 from typing import Dict, List
+from src.schemas.question import Question
 from langchain_core.pydantic_v1 import BaseModel, Field
 from src.schemas.test_case import TestCase
 
@@ -65,7 +66,7 @@ class Model():
         
     def generate_qa_pair(self, document_content:str, doc_id:str)->TestCase:
         """
-        generates a dictionary which creates question and answers based on documnets in the knowledge base
+        generates a dictionary which creates question and answers based on documents in the knowledge base
         """
         ret = {}
         test_case_chain = self.TEST_CASE_TEMPLATE | self.llm.with_structured_output(Question)
@@ -83,12 +84,5 @@ class Model():
         except Exception as e:
             print("exception occured: {e}")
         
-
-class Question(BaseModel):
-
-    question: str = Field(description="The setup of the joke")
-    answer: str = Field(description="The punchline to the joke")
-    
-
 
 

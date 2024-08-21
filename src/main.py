@@ -2,9 +2,9 @@ import time
 import inquirer
 from src.test_generator import TestQuestionGenerator
 from src.model import Model
-from src.vectorstore import VectorStoreManager
+from src.vectorstore import VectorStoreManager, SqlDb
 from src.pipeline import Pipeline
-from src.vectorstore import SqlDb
+from src.schemas.question import Question
 from enum import Enum
 from langchain_cohere import CohereEmbeddings
 from langchain_openai import OpenAIEmbeddings
