@@ -14,7 +14,7 @@ This test can be run n times, and the final accuracy is printed at the bottom.
 
 Figures below describe how the model works: 
 
-![image](https://github.com/user-attachments/assets/f944c747-cf25-402b-a3dc-64588d6ae44e)
+![image](https://github.com/user-attachments/assets/04850804-c992-42e3-ac70-2b42e4f32198)
 
 
 ![image](https://github.com/user-attachments/assets/8abf04ea-d729-4219-b688-0ab48088b16a)
