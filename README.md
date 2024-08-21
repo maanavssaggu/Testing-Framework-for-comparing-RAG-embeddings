@@ -64,6 +64,7 @@ Test Results Summary
 ```
 
 ## Terminal output of running the framework
-<img width="856" alt="image" src="https://github.com/user-attachments/assets/f6e008ee-8694-492e-b855-fa9f3a7b0262">
+<img width="674" alt="image" src="https://github.com/user-attachments/assets/813f5992-7c5f-4297-a61a-6152a8a752cb">
+
 
 
